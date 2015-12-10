@@ -9,4 +9,4 @@ build:
     - su -l postgres -c "/usr/bin/pg_ctl start -D /var/lib/pgsql/data -s -o '-p 5432' -w -t 300"
     - psql -U postgres -c 'create database test_cake;'
     - php composer.phar install
-    - ./app/Console/cake test app Model/Post
+    - ./app/Console/cake test app Model/Post 
