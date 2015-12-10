@@ -1,0 +1,20 @@
+{
+    "name": "example-app",
+    "require": {
+        "cakephp/cakephp": "2.7.*",
+        "cakedc/migrations": "2.4.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "config": {
+        "vendor-dir": "vendors/"
+    },
+    "extra": {
+        "installer-paths": {
+            "plugins/{$name}/": [
+                "cakedc/migrations"
+            ]
+        }
+    }
+}
