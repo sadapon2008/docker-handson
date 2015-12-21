@@ -1,6 +1,6 @@
 ---
 build:
-  image: docker-registry-demo.fusic.co.jp:5000/sadakata/centos7-2
+  image: docker-registry.fusic.co.jp:5000/sadakata/centos7
   privileged: true
   volumes:
     - /sys/fs/cgroup:/sys/fs/cgroup:ro
