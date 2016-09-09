@@ -1,12 +1,8 @@
 ---
 build:
-  image: docker-registry.fusic.co.jp:5000/sadakata/centos7
-  privileged: true
-  volumes:
-    - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  image: sadapon2008/drone-centos6-remi-php55-pgdg-postgresql93
   commands:
-    - mkdir -p /var/run/postgresql && chown -R postgres /var/run/postgresql
-    - su -l postgres -c "/usr/bin/pg_ctl start -D /var/lib/pgsql/data -s -o '-p 5432' -w -t 300"
+    - su -l postgres -c "/usr/pgsql-9.3/bin/pg_ctl start -D /var/lib/pgsql/9.3/data -s -o '-p 5432' -w -t 300"
     - psql -U postgres -c 'create database test_cake;'
     - php composer.phar install
     - ./app/Console/cake test app Model/Post
