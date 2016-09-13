@@ -1,12 +1,9 @@
 ---
 build:
-  image: docker-registry.fusic.co.jp:5000/sadakata/centos7
-  privileged: true
-  volumes:
-    - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  image: sadapon2008/drone-centos6-remi-php55-mysql-mysql55
   commands:
-    - mkdir -p /var/run/postgresql && chown -R postgres /var/run/postgresql
-    - su -l postgres -c "/usr/bin/pg_ctl start -D /var/lib/pgsql/data -s -o '-p 5432' -w -t 300"
-    - psql -U postgres -c 'create database test_cake;'
+    - /usr/bin/mysqld_safe > /dev/null 2>&1 &
+    - mysql -u root -e 'create database test_cake;'
+    - source /etc/profile.d/enablephp55.sh
     - php composer.phar install
     - ./app/Console/cake test app Model/Post
