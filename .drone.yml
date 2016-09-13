@@ -2,7 +2,7 @@
 build:
   image: sadapon2008/drone-centos6-remi-php55-mysql-mysql55
   commands:
-    - /usr/bin/mysqld_safe > /dev/null 2>&1 &
+    - /usr/bin/mysqld_safe 2>&1 &
     - mysql -u root -e 'create database test_cake;'
     - source /etc/profile.d/enablephp55.sh
     - php composer.phar install
