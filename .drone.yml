@@ -10,3 +10,4 @@ build:
     - psql -U postgres -c 'create database test_cake;'
     - php composer.phar install
     - ./app/Console/cake test app Model/Post
+
