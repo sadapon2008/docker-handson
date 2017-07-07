@@ -8,3 +8,4 @@ build:
     - source /etc/profile.d/enablephp55.sh
     - php composer.phar install
     - ./app/Console/cake test app Model/Post
+
